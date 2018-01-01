@@ -1,9 +1,9 @@
 """
-Problem
+Problem:
     Given two strings, write a method to decide if one is
     a permutation of the other.
 
-Implementation
+Implementation:
     A string of size A is a permutation of another string of size B if:
         1. They have the same length.
         2. They have the same unique characters.
@@ -11,7 +11,7 @@ Implementation
 
     All we have to do is encode those constraints into an algorithm.
 
-Efficiency
+Efficiency:
     Time: O(A + B)
     Space: O(A + B)
 

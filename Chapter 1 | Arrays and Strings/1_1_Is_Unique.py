@@ -1,14 +1,14 @@
 """
-Problem
+Problem:
     Implement an algorithm to determine if a string has all
     unique characters. What if you cannot use additional data structures?
 
-Implementation
+Implementation:
     Characters are added iteratively to a set. If I could not use a set,
     I would probably implement my own hash table, using a list and
     "hashing" the ASCII value of the characters, and use that instead.
 
-Efficiency
+Efficiency:
     Time: O(N)
     Space: O(N) 
 

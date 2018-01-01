@@ -1,12 +1,12 @@
 """
-Problem
+Problem:
     An algorithm for printing size N x M matrices in spiral order.
 
-Implementation
+Implementation:
     Relies on the use of four control variables to demarcate the
     boundaries of the not-yet-printed numbers in our matrix.
 
-Efficiency
+Efficiency:
     Time: O(NM)
     Space: O(NM)
 
