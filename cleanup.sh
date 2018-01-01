@@ -2,7 +2,7 @@
 # Basic cleanup script to clean up my solutions.
 
 # Fix pep8 violations
-autopep8 . --recursive --in-place --pep8-passes 2000 --verbose
+autopep8 . --recursive --in-place --pep8-passes 2000 --verbose --aggressive
 
 # Reorder imports
 isort -rc .

@@ -10,7 +10,7 @@ Implementation:
 
 Efficiency:
     Time: O(N)
-    Space: O(N) 
+    Space: O(N)
 
 """
 
@@ -32,8 +32,8 @@ def is_unique(string: str) -> bool:
     return len(char_set) == len(string)
 
 
-assert is_unique('abc') == True
-assert is_unique('a') == True
-assert is_unique('') == True
-assert is_unique('aac') == False
-assert is_unique('aacc') == False
+assert is_unique('abc')
+assert is_unique('a')
+assert is_unique('')
+assert not is_unique('aac')
+assert not is_unique('aacc')

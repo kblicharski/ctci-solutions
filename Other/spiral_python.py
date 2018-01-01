@@ -49,10 +49,11 @@ def spiral_order(A: List[List[int]]) -> List[int]:
         List[int]: The list representing the spiral ordering.
 
     """
-    if len(A) == 1: return A[0]
+    if len(A) == 1:
+        return A[0]
 
     ordering = []
-    
+
     T = 0
     B = len(A) - 1
     L = 0
@@ -62,26 +63,26 @@ def spiral_order(A: List[List[int]]) -> List[int]:
 
     while (T <= B and L <= R):
         if direction == Direction.RIGHT:
-            for i in range(L, R+1):
+            for i in range(L, R + 1):
                 ordering.append(A[T][i])
             T += 1
             direction = Direction.DOWN
         elif direction == Direction.DOWN:
-            for i in range(T, B+1):
+            for i in range(T, B + 1):
                 ordering.append(A[i][R])
             R -= 1
             direction = Direction.LEFT
         elif direction == Direction.LEFT:
-            for i in range(R, L-1, -1):
+            for i in range(R, L - 1, -1):
                 ordering.append(A[B][i])
             B -= 1
             direction = Direction.UP
         elif direction == Direction.UP:
-            for i in range(B, T-1, -1):
+            for i in range(B, T - 1, -1):
                 ordering.append(A[i][L])
             L += 1
             direction = Direction.RIGHT
-            
+
     return ordering
 
 

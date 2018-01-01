@@ -62,7 +62,7 @@ def one_away(str1: str, str2: str) -> bool:
 
     str1_value = ord_sum(str1)
     str2_value = ord_sum(str2)
-    difference = abs(str1_value - str2_value) 
+    difference = abs(str1_value - str2_value)
 
     # The strings are the same.
     if difference == 0:
@@ -77,19 +77,19 @@ def one_away(str1: str, str2: str) -> bool:
 
 
 # Zero edits
-assert one_away('pale', 'pale') == True
+assert one_away('pale', 'pale')
 
 # Removal
-assert one_away('pale', 'ple') == True
+assert one_away('pale', 'ple')
 
 # Insertion
-assert one_away('pales', 'pale') == True
+assert one_away('pales', 'pale')
 
 # Replacement
-assert one_away('pale', 'bale') == True
+assert one_away('pale', 'bale')
 
 # Two replacements apart
-assert one_away('pale', 'bake') == False 
+assert not one_away('pale', 'bake')
 
 # One string is two characters longer
-assert one_away('palest', 'bake') == False 
+assert not one_away('palest', 'bake')

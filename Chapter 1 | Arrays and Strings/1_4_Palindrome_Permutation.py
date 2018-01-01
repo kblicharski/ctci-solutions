@@ -54,17 +54,17 @@ def palindrome_permutation(string: str) -> bool:
 
 
 # 'a'
-assert palindrome_permutation('a') == True
-assert palindrome_permutation('ab') == False
+assert palindrome_permutation('a')
+assert not palindrome_permutation('ab')
 
 # 'aba'
-assert palindrome_permutation('baa') == True
-assert palindrome_permutation('baac') == False 
+assert palindrome_permutation('baa')
+assert not palindrome_permutation('baac')
 
 # 'abba', 'baab'
-assert palindrome_permutation('abba') == True
-assert palindrome_permutation('abaa') == False
+assert palindrome_permutation('abba')
+assert not palindrome_permutation('abaa')
 
 # 'abcba', 'bacab'
-assert palindrome_permutation('abcba') == True
-assert palindrome_permutation('abccca') == False
+assert palindrome_permutation('abcba')
+assert not palindrome_permutation('abccca')

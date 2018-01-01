@@ -31,11 +31,12 @@ def check_permutation(str1: str, str2: str) -> bool:
 
     """
     # Check the lengths.
-    if len(str1) != len(str2): return False
+    if len(str1) != len(str2):
+        return False
 
     # Check the unique characters.
-    chars1 = {c:0 for c in str1}
-    chars2 = {c:0 for c in str2}
+    chars1 = {c: 0 for c in str1}
+    chars2 = {c: 0 for c in str2}
 
     for c in chars1:
         if c not in chars2:
@@ -55,11 +56,11 @@ def check_permutation(str1: str, str2: str) -> bool:
     return True
 
 
-assert check_permutation('a', 'a') == True
-assert check_permutation('ab', 'ba') == True
-assert check_permutation('aba', 'baa') == True
-assert check_permutation('abba', 'baab') == True
-assert check_permutation('aa', 'a') == False
-assert check_permutation('aab', 'bba') == False
-assert check_permutation('aa', 'ba') == False
-assert check_permutation('a', 'b') == False
+assert check_permutation('a', 'a')
+assert check_permutation('ab', 'ba')
+assert check_permutation('aba', 'baa')
+assert check_permutation('abba', 'baab')
+assert not check_permutation('aa', 'a')
+assert not check_permutation('aab', 'bba')
+assert not check_permutation('aa', 'ba')
+assert not check_permutation('a', 'b')

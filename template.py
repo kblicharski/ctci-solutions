@@ -9,7 +9,8 @@ Efficiency:
 
 """
 
-def solution(param1: Type) -> Type:
+
+def solution(param1):
     """
 
     Args:
@@ -20,5 +21,3 @@ def solution(param1: Type) -> Type:
 
     """
     pass
-
-
