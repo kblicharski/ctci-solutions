@@ -1,20 +1,35 @@
 """
-An algorithm to determine if one string of size A is a permutation of
-another string of size B.
+Problem
+    Given two strings, write a method to decide if one is
+    a permutation of the other.
 
-A string is a permutation of another string if:
-    1. They have the same length.
-    2. They have the same unique characters.
-    3. They have the same number of unique characters.
+Implementation
+    A string of size A is a permutation of another string of size B if:
+        1. They have the same length.
+        2. They have the same unique characters.
+        3. They have the same number of unique characters.
 
-All we have to do is encode those constraints into an algorithm.
+    All we have to do is encode those constraints into an algorithm.
 
-Time: O(A + B)
-Space: O(A + B)
+Efficiency
+    Time: O(A + B)
+    Space: O(A + B)
+
 """
 
 
 def check_permutation(str1: str, str2: str) -> bool:
+    """
+    Determine if one string is a permutation of the other.
+
+    Args:
+        str1 (str): The first string.
+        str2 (str): The second string.
+
+    Returns:
+        bool: True if string one is a permutation of string two.
+
+    """
     # Check the lengths.
     if len(str1) != len(str2): return False
 

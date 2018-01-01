@@ -1,11 +1,15 @@
 """
-An algorithm for printing size N x M matrices in spiral order.
+Problem
+    An algorithm for printing size N x M matrices in spiral order.
 
-Time: O(NM)
-Space: O(NM)
+Implementation
+    Relies on the use of four control variables to demarcate the
+    boundaries of the not-yet-printed numbers in our matrix.
 
-Relies on the use of four control variables to demarcate the
-boundaries of the not-yet-printed numbers in our matrix.
+Efficiency
+    Time: O(NM)
+    Space: O(NM)
+
 """
 
 from typing import List

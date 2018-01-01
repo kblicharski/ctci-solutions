@@ -1,15 +1,31 @@
 """
-An algorithm to determine if a string of size N has all unique characters.
+Problem
+    Implement an algorithm to determine if a string has all
+    unique characters. What if you cannot use additional data structures?
 
-Characters are added iteratively to a set. If I were unable to use a set,
-I would probably implement my own hash table and use that instead.
+Implementation
+    Characters are added iteratively to a set. If I could not use a set,
+    I would probably implement my own hash table, using a list and
+    "hashing" the ASCII value of the characters, and use that instead.
 
-Time: O(N)
-Space: O(N) 
+Efficiency
+    Time: O(N)
+    Space: O(N) 
+
 """
 
 
 def is_unique(string: str) -> bool:
+    """
+    Determine if a string of size N has all unique characters.
+
+    Args:
+        string (str): The string we are checking.
+
+    Returns:
+        bool: True if the string has all unique characters.
+
+    """
     char_set = set()
     for char in string:
         char_set.add(char)
