@@ -6,13 +6,29 @@ Implementation:
     Relies on the use of four control variables to demarcate the
     boundaries of the not-yet-printed numbers in our matrix.
 
+    Additionally, a fifth variable functions as a flag for the direction
+    we are currently traversing in. This is important for the special
+    case where we have a matrix with more than two rows, but one column.
+
+    One example is the assertion for an 8x1 matrix. For this reason,
+    although it would be nice to delete all of the `elif` statements
+    and direction assignments, we cannot.
+
 Efficiency:
     Time: O(NM)
     Space: O(NM)
 
 """
-
+from enum import Enum
 from typing import List
+
+
+class Direction(Enum):
+    """An enum to define the cardinal directions."""
+    RIGHT = 0
+    DOWN = 1
+    LEFT = 2
+    UP = 3
 
 
 def spiral_order(A: List[List[int]]) -> List[int]:
@@ -42,20 +58,30 @@ def spiral_order(A: List[List[int]]) -> List[int]:
     L = 0
     R = len(A[0]) - 1
 
+    direction = Direction.RIGHT
+
     while (T <= B and L <= R):
-        for i in range(L, R+1):
-            ordering.append(A[T][i])
-        T += 1
-        for i in range(T, B+1):
-            ordering.append(A[i][R])
-        R -= 1
-        for i in range(R, L-1, -1):
-            ordering.append(A[B][i])
-        B -= 1
-        for i in range(B, T-1, -1):
-            ordering.append(A[i][L])
-        L += 1
-        
+        if direction == Direction.RIGHT:
+            for i in range(L, R+1):
+                ordering.append(A[T][i])
+            T += 1
+            direction = Direction.DOWN
+        elif direction == Direction.DOWN:
+            for i in range(T, B+1):
+                ordering.append(A[i][R])
+            R -= 1
+            direction = Direction.LEFT
+        elif direction == Direction.LEFT:
+            for i in range(R, L-1, -1):
+                ordering.append(A[B][i])
+            B -= 1
+            direction = Direction.UP
+        elif direction == Direction.UP:
+            for i in range(B, T-1, -1):
+                ordering.append(A[i][L])
+            L += 1
+            direction = Direction.RIGHT
+            
     return ordering
 
 
@@ -100,3 +126,21 @@ assert spiral_order([
 assert spiral_order([
     [1]
 ]) == [1]
+
+# 1x8 matrix
+assert spiral_order([
+    [1, 2, 3, 4, 5, 6, 7, 8]
+]) == [1, 2, 3, 4, 5, 6, 7, 8]
+
+
+# 8x1 matrix
+assert spiral_order([
+    [1],
+    [2],
+    [3],
+    [4],
+    [5],
+    [6],
+    [7],
+    [8]
+]) == [1, 2, 3, 4, 5, 6, 7, 8]
