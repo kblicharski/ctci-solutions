@@ -1,20 +1,23 @@
 """
 Problem:
+    TODO
 
 Implementation:
+    TODO
 
 Efficiency:
-    Time:
-    Space:
+    Time: TODO
+    Space: TODO
 
 """
 
 
-def solution(param1):
+def solution(param):
     """
+    TODO
 
     Args:
-        param1 (type): The first parameter.
+        param (type): The first parameter.
 
     Returns:
         type: The solution.

@@ -8,6 +8,7 @@ Problem:
     letters (a-z).
 
 Implementation:
+    TODO
 
 Efficiency:
     Time:
@@ -16,14 +17,21 @@ Efficiency:
 """
 
 
-def solution(param1):
+def compressed_string(string: str) -> str:
     """
+    Compress a string using the counts of its repeated characters, if possible.
 
     Args:
-        param1 (type): The first parameter.
+        string (str): The string to be compressed.
 
     Returns:
-        type: The solution.
+        str: The compressed string if its size is smaller than the original.
+
+    Examples:
+        >>> compressed_string('aabcccccaaa')
+        'a2b1c5a3'
+        >>> compressed_string('abcdd')
+        'abcdd'
 
     """
-    pass
+    return string
