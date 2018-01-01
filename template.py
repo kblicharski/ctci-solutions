@@ -1,9 +1,7 @@
 """
 Problem:
-    The problem statement.
 
 Implementation:
-    How it's solved.
 
 Efficiency:
     Time:
@@ -11,12 +9,8 @@ Efficiency:
 
 """
 
-class Type:
-    pass
-
 def solution(param1: Type) -> Type:
     """
-    Find the solution to the problem.
 
     Args:
         param1 (type): The first parameter.
@@ -27,6 +21,4 @@ def solution(param1: Type) -> Type:
     """
     pass
 
-
-# Test cases go below.
 
