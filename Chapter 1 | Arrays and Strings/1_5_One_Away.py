@@ -6,15 +6,36 @@ Problem:
     away.
 
 Implementation:
+    An initial solution might check for all three cases separately. In my
+    solution, I decided to go with using the ASCII values of the letters
+    to determine whether they were within the edit distance. This worked
+    very well for the insertion and deletion cases, but failed for
+    replacement.
+
+    For replacement, we have to add the letters of each string into sets.
+    We then take the set difference. If the set difference has one or no
+    characters remaining, then we know we're within one replacement.
+    Otherwise, we would have to replace more than one character, and we
+    can return false.
 
 Efficiency:
-    Time:
-    Space:
+    Time: O(A + B)
+    Space: O(A + B)
 
 """
 
 
 def ord_sum(string: str) -> int:
+    """
+    Sum the ASCII values of the characters of a passed string.
+
+    Args:
+        string (str): The string whose ASCII values we are summing.
+
+    Returns:
+        int: The sum of each letter's ASCII value.
+
+    """
     return sum([ord(c) for c in string])
 
 
@@ -33,28 +54,27 @@ def one_away(str1: str, str2: str) -> bool:
         bool: True if string one is at most one 'edit' away from the other.
 
     """
-    str1 = str1.lower()
-    str2 = str2.lower()
-    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    if abs(len(str1) - len(str2)) > 1:
+        return False
+
+    alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    ascii_values = {ord(c) for c in alphabet}
+
     str1_value = ord_sum(str1)
     str2_value = ord_sum(str2)
-    ascii_values = {ord(c) for c in alphabet}
     difference = abs(str1_value - str2_value) 
 
-    # This handles insertion and deletion
-    # We just need a third check for replacement
-    if difference in ascii_values or difference == 0:
+    # The strings are the same.
+    if difference == 0:
         return True
-
+    # The strings are one insertion or deletion apart.
+    if difference in ascii_values:
+        return True
+    # The strings are one replacement apart.
     s1_chars = {c for c in str1}
     s2_chars = {c for c in str2}
+    return len(s1_chars - s2_chars) <= 1
 
-    count = 0
-    for c in s1_chars:
-        if c in s2_chars:
-            count += 1
-
-    return len(str1) - count <= 1
 
 # Zero edits
 assert one_away('pale', 'pale') == True
@@ -68,4 +88,8 @@ assert one_away('pales', 'pale') == True
 # Replacement
 assert one_away('pale', 'bale') == True
 
+# Two replacements apart
 assert one_away('pale', 'bake') == False 
+
+# One string is two characters longer
+assert one_away('palest', 'bake') == False 
