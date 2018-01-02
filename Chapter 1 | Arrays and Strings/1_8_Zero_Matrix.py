@@ -7,8 +7,8 @@ Implementation:
     TODO
 
 Efficiency:
-    Time: TODO
-    Space: TODO
+    Time: O(MN)
+    Space: O(M+N)
 
 """
 from typing import List
@@ -22,7 +22,25 @@ def zero_matrix(matrix: List[List[int]]) -> None:
         matrix (List[List[int]]): The matrix we are zeroing in-place.
 
     """
-    print(matrix)
+    zero_rows = []
+    zero_cols = []
+
+    # Find the rows and the columns we want to zero
+    for row, row_slice in enumerate(matrix):
+        for col, value in enumerate(row_slice):
+            if value == 0:
+                zero_rows.append(row)
+                zero_cols.append(col)
+
+    # Zero the correct rows
+    for row in zero_rows:
+        for i in range(len(matrix[row])):
+            matrix[row][i] = 0
+
+    # Zero the correct columns
+    for row in range(len(matrix)):
+        for col in zero_cols:
+            matrix[row][col] = 0
 
 
 # 1x1 matrix
@@ -73,4 +91,19 @@ assert m == [
     [1, 0, 1],
     [0, 0, 0],
     [1, 0, 1]
+]
+
+# 4x5 matrix with two zeros
+m = [
+    [1, 1, 1, 1, 1],
+    [1, 0, 1, 1, 1],
+    [1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 0]
+]
+zero_matrix(m)
+assert m == [
+    [1, 0, 1, 1, 0],
+    [0, 0, 0, 0, 0],
+    [1, 0, 1, 1, 0],
+    [0, 0, 0, 0, 0]
 ]
