@@ -23,3 +23,54 @@ def zero_matrix(matrix: List[List[int]]) -> None:
 
     """
     print(matrix)
+
+
+# 1x1 matrix
+m = [[1]]
+zero_matrix(m)
+assert m == [[1]]
+
+# 1x1 matrix
+m = [[0]]
+zero_matrix(m)
+assert m == [[0]]
+
+# 1x2 matrix
+m = [[1, 0]]
+zero_matrix(m)
+assert m == [[0, 0]]
+
+# 2x1 matrix
+m = [
+    [1],
+    [0]
+]
+zero_matrix(m)
+assert m == [
+    [0],
+    [0]
+]
+
+# 2x2 matrix
+m = [
+    [1, 1],
+    [0, 1]
+]
+zero_matrix(m)
+assert m == [
+    [0, 1],
+    [0, 0]
+]
+
+# 3x3 matrix
+m = [
+    [1, 1, 1],
+    [1, 0, 1],
+    [1, 1, 1]
+]
+zero_matrix(m)
+assert m == [
+    [1, 0, 1],
+    [0, 0, 0],
+    [1, 0, 1]
+]
