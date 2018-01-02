@@ -6,16 +6,24 @@ Problem:
     'waterbottle' is a rotation of 'erbottlewat'.
 
 Implementation:
-    TODO
+    This problem is basically a brain-teaser and relies on one key piece of
+    insight that might be difficult to catch immediately.
+    s1 is a rotation of s2 only if s1 is contained in s2 appended to itself. In
+    the above example, this becomes clear after looking at the string
+    'erbottlewaterbottlewat'. 'waterbottle' is contained inside.
+
+    We need to avoid the O(N^2) time of string concatenation, so in Python this
+    would mean using the str.join method, or for shorthand, just multiplying
+    s1 by two.
 
 Efficiency:
-    Time: TODO
-    Space: TODO
+    Time: O(A+B)
+    Space: O(B)
 
 """
 
 
-def check_string_rotation(s1: str, s2: str) -> bool:
+def string_rotation(s1: str, s2: str) -> bool:
     """
     Check if the second string is a rotation of the first string.
 
@@ -27,4 +35,30 @@ def check_string_rotation(s1: str, s2: str) -> bool:
         bool: True if the second string is a rotation of the first.
 
     """
-    pass
+    return len(s1) == len(s2) and s1 in s2*2
+
+
+assert string_rotation('', '')
+assert string_rotation('a', 'a')
+
+assert string_rotation('ab', 'ba')
+
+assert string_rotation('aba', 'aab')
+assert string_rotation('aba', 'baa')
+assert string_rotation('aba', 'aba')
+
+assert string_rotation('abc', 'cab')
+assert string_rotation('abc', 'bca')
+assert string_rotation('abc', 'abc')
+
+assert not string_rotation('abc', 'cba')
+assert not string_rotation('abc', 'acb')
+assert not string_rotation('abc', 'bac')
+
+assert string_rotation('abaa', 'aaba')
+assert string_rotation('abaa', 'aaab')
+assert string_rotation('abaa', 'baaa')
+
+assert string_rotation('waterbottle', 'erbottlewat')
+assert not string_rotation('waterbottle', 'werbottleat')
+assert not string_rotation('waterbottle', 'erwbottleat')
