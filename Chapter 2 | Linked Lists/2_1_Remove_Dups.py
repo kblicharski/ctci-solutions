@@ -12,7 +12,7 @@ Efficiency:
 """
 
 
-def solution(param):
+def solution(param: object) -> object:
     """
     TODO
 
